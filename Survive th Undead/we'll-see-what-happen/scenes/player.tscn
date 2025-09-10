@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv3n3ge5eqw8l"]
+
+[ext_resource type="Script" uid="uid://drh6ewkn2id23" path="res://player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bf1bbi0vspr" path="res://images/hardws.png" id="2_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 19.105
+
+[node name="player" type="CharacterBody2D" groups=["players"]]
+script = ExtResource("1_g2els")
+
+[node name="CharacterBody2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7, -6)
+scale = Vector2(1.54166, 1.54166)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_qhqgy")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

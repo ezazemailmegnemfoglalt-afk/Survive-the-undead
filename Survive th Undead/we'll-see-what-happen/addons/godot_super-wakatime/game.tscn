@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://6666figr6m4d"]
+
+[ext_resource type="PackedScene" uid="uid://d0pex4vrgltsj" path="res://scenes/map.tscn" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://ivog70kxvcj1" path="res://addons/godot_super-wakatime/game.gd" id="1_to5d1"]
+[ext_resource type="PackedScene" uid="uid://cv3n3ge5eqw8l" path="res://scenes/player.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bqpeuxq547gy1" path="res://scenes/summoner.tscn" id="3_o2hs4"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_to5d1")
+
+[node name="Node2D" parent="." instance=ExtResource("1_feb5d")]
+position = Vector2(1, -5)
+
+[node name="player" parent="." instance=ExtResource("2_fc0e3")]
+position = Vector2(332, 272)
+
+[node name="Summoner" parent="." instance=ExtResource("3_o2hs4")]
+position = Vector2(676, 399)
