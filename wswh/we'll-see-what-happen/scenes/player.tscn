@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cb2o8gv1163em"]
+
+[ext_resource type="Script" uid="uid://drh6ewkn2id23" path="res://scenes/scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bf1bbi0vspr" path="res://images/hardws.png" id="2_i3pqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 37.0135
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 53.0848
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 67.0075
+
+[node name="Player" type="CharacterBody2D" groups=["players"]]
+script = ExtResource("1_onrkg")
+
+[node name="CharacterBody2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, -7)
+scale = Vector2(2.58333, 2.58333)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_dqkch")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_qhqgy")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

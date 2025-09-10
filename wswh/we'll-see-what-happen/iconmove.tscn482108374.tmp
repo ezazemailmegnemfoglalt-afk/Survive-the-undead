@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://bg82t3tjofjpy"]
+
+[ext_resource type="Texture2D" uid="uid://dfygncf023oda" path="res://images/Sprite-0001.png" id="1_sb4gy"]
+[ext_resource type="Script" uid="uid://60g7srrhk6ql" path="res://character_body_2d.gd" id="2_e6jlk"]
+[ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="3_it7in"]
+[ext_resource type="Texture2D" uid="uid://drs73065wgyl0" path="res://images/summoner.png" id="4_it7in"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkisy"]
+atlas = ExtResource("3_it7in")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qy3t"]
+atlas = ExtResource("3_it7in")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_th1cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkisy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qy3t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_0qy3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th1cd"]
+atlas = ExtResource("4_it7in")
+region = Rect2(0, 0, 50, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk263"]
+atlas = ExtResource("4_it7in")
+region = Rect2(50, 0, 50, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wscje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th1cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk263")
+}],
+"loop": true,
+"name": &"mzog",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_e6jlk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite-0001" type="Sprite2D" parent="."]
+position = Vector2(575.5, 329.5)
+scale = Vector2(5.735, 3.315)
+texture = ExtResource("1_sb4gy")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_e6jlk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(597, 312)
+sprite_frames = SubResource("SpriteFrames_th1cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+script = SubResource("GDScript_0qy3t")
+
+[node name="summoner" type="AnimatedSprite2D" parent="CharacterBody2D2"]
+position = Vector2(586, 243)
+sprite_frames = SubResource("SpriteFrames_wscje")
+animation = &"mzog"
+script = SubResource("GDScript_e6jlk")
