@@ -34,24 +34,29 @@ func take_damage(amount: int) -> void:
 func die():
 	queue_free()
 
-func _on_Hitbox_body_entered(body: Node):
-	if body.is_in_group("hurtbox"):
-		var parent = body.get_parent()
+func _on_Hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurtbox"):
+		var parent = area.get_parent()
 		if parent.is_in_group("enemies"):
 			if parent.has_method("take_damage"):
 				parent.take_damage(damage)
 				print("Player sebzett:", damage)
 
-func _on_Hurtbox_body_entered(body: Node):
-	if body.is_in_group("hitbox"):
-		var parent = body.get_parent()
+
+func _on_Hurtbox_area_entered(area: Area2D):
+	if area.is_in_group("hitbox"):
+		var parent = area.get_parent()
 		if parent.has_method("deal_damage"):
 			parent.deal_damage(self)
 
 # egérkattintás -> sebzés a hitbox által
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		for body in $Hitbox.get_overlapping_bodies():
-			if body.is_in_group("enemies"):
-				body.take_damage(damage)
+		for area in $Hitbox.get_overlapping_bodies():
+			if area.is_in_group("enemies"):
+				area.take_damage(damage)
 				print("Player sebzett:", damage)
+				
+func deal_damage(target: Node):
+	if target.has_method("take_damage"):
+		target.take_damage(damage)

@@ -53,11 +53,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6ls8"]
+radius = 50.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfiis"]
 radius = 27.0185
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t6ls8"]
-radius = 45.0
 
 [node name="Summoner" type="CharacterBody2D" groups=["emenies"]]
 script = ExtResource("1_ory83")
@@ -69,15 +69,19 @@ scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_7ewqv")
 animation = &"summoning"
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
+position = Vector2(1, 33)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_t6ls8")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 32)
 shape = SubResource("CircleShape2D_jfiis")
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
-position = Vector2(83, 3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-82, 29)
-shape = SubResource("CircleShape2D_t6ls8")
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

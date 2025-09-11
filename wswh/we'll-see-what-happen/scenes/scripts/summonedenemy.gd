@@ -20,20 +20,20 @@ func _physics_process(delta):
 		velocity = dir * speed
 		move_and_slide()
 
-# ha eléri a Player hurtboxát, sebzi
-func _on_Hitbox_body_entered(body: Node):
-	if body.is_in_group("hurtbox"):
-		var parent = body.get_parent()
+func _on_Hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hitbox"):
+		var parent = area.get_parent()
+		if parent.has_method("deal_damage"):
+			parent.deal_damage(self)
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurtbox"):
+		var parent = area.get_parent()
 		if parent.is_in_group("players"):
 			if parent.has_method("take_damage"):
 				parent.take_damage(damage)
-				print("Minion sebzett:", damage)
+				print("emeny sebzett:", damage)
 
-func _on_Hurtbox_body_entered(body: Node):
-	if body.is_in_group("hitbox"):
-		var parent = body.get_parent()
-		if parent.has_method("deal_damage"):
-			parent.deal_damage(self)
 
 func deal_damage(target: Node):
 	if target.has_method("take_damage"):

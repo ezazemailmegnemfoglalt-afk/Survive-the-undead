@@ -29,9 +29,10 @@ animations = [{
 size = Vector2(8, 9)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwwcl"]
+radius = 8.48528
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2myv"]
-radius = 16.0
+radius = 14.1421
 
 [node name="summonedenemy" type="CharacterBody2D" groups=["emenies"]]
 script = ExtResource("1_qwwcl")
@@ -46,16 +47,21 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_qwwcl")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["hitbox"]]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_qwwcl")
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["hurtbox"]]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_p2myv")
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
