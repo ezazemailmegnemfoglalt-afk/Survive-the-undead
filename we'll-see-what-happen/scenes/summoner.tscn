@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://o3cql5et7sir"]
+
+[ext_resource type="Texture2D" uid="uid://drs73065wgyl0" path="res://images/summoner.png" id="1_08fma"]
+[ext_resource type="Script" uid="uid://yn3d4lrce844" path="res://scripts/summoner.gd" id="1_ev7wa"]
+[ext_resource type="PackedScene" uid="uid://t5dm04p8aokt" path="res://scenes/summonedenemy.tscn" id="2_ory83"]
+[ext_resource type="Script" uid="uid://cmgg4h0obfmmx" path="res://scripts/hurtbox.gd" id="4_jfiis"]
+[ext_resource type="Script" uid="uid://rngeacm1i30q" path="res://scripts/health.gd" id="4_t6ls8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev7wa"]
+atlas = ExtResource("1_08fma")
+region = Rect2(0, 0, 50, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ory83"]
+atlas = ExtResource("1_08fma")
+region = Rect2(50, 0, 50, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfiis"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev7wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ory83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6ls8"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52vk5"]
+radius = 26.0192
+
+[node name="Summoner" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_ev7wa")
+summon_scene = ExtResource("2_ory83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jfiis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_t6ls8")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_t6ls8")
+metadata/_custom_type_script = "uid://rngeacm1i30q"
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+position = Vector2(0, 16)
+collision_layer = 0
+script = ExtResource("4_jfiis")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://cmgg4h0obfmmx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_52vk5")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

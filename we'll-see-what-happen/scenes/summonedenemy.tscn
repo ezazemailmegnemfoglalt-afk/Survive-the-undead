@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://t5dm04p8aokt"]
+
+[ext_resource type="Texture2D" uid="uid://pa2epbhvni8u" path="res://images/enemysummoned.png" id="1_0d8je"]
+[ext_resource type="Script" uid="uid://b3r8e62ga4oes" path="res://scripts/summonedenemy.gd" id="1_rrrlw"]
+[ext_resource type="Script" uid="uid://rngeacm1i30q" path="res://scripts/health.gd" id="2_p2myv"]
+[ext_resource type="Script" uid="uid://cmgg4h0obfmmx" path="res://scripts/hurtbox.gd" id="3_rrrlw"]
+[ext_resource type="Script" uid="uid://cxbyqc2xgekh1" path="res://scripts/hitbox.gd" id="5_vwt63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwwcl"]
+atlas = ExtResource("1_0d8je")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2myv"]
+atlas = ExtResource("1_0d8je")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrrlw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwwcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2myv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwt63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6dt6u"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2myv"]
+radius = 15.0333
+
+[node name="Summonedenemy" type="CharacterBody2D"]
+script = ExtResource("1_rrrlw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -3)
+sprite_frames = SubResource("SpriteFrames_rrrlw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vwt63")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_p2myv")
+max_health = 50
+metadata/_custom_type_script = "uid://rngeacm1i30q"
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("5_vwt63")
+damage = 100
+metadata/_custom_type_script = "uid://cxbyqc2xgekh1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_6dt6u")
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 2
+script = ExtResource("3_rrrlw")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://cmgg4h0obfmmx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_p2myv")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
