@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://6666figr6m4d"]
+
+[ext_resource type="PackedScene" uid="uid://dmhhkwfkqdqrs" path="res://components/map_4.tscn" id="1_qqhij"]
+[ext_resource type="PackedScene" uid="uid://bcku3rt0ciq4r" path="res://components/SummonerTriggerRight.tscn" id="2_qqhij"]
+[ext_resource type="PackedScene" uid="uid://cf2umr1ufn2u" path="res://enemy/summoner.tscn" id="3_o2hs4"]
+[ext_resource type="PackedScene" uid="uid://0583c18ahgmp" path="res://enemy/boss.tscn" id="4_qqhij"]
+[ext_resource type="PackedScene" uid="uid://nm8fsqs3uv4s" path="res://player/player.tscn" id="4_to5d1"]
+[ext_resource type="PackedScene" uid="uid://bi4kwubucb11k" path="res://components/summon_trigger_left.tscn" id="6_yxxav"]
+[ext_resource type="PackedScene" uid="uid://ba31pemlb2dlo" path="res://components/boss_trigger.tscn" id="7_01ylt"]
+
+[sub_resource type="GDScript" id="GDScript_o2hs4"]
+script/source = "extends Node2D
+
+var current_wave: int
+@export var SummonerLeft: PackedScene
+@export var SummonerRight: PackedScene
+@export var Boss: PackedScene
+"
+
+[node name="FirstGameBattle" type="Node2D"]
+script = SubResource("GDScript_o2hs4")
+SummonerLeft = ExtResource("3_o2hs4")
+SummonerRight = ExtResource("3_o2hs4")
+Boss = ExtResource("4_qqhij")
+
+[node name="Map4" parent="." instance=ExtResource("1_qqhij")]
+position = Vector2(-9, 0)
+
+[node name="SummonerTriggerRight" parent="." instance=ExtResource("2_qqhij")]
+position = Vector2(-2, 2)
+
+[node name="Player" parent="." instance=ExtResource("4_to5d1")]
+position = Vector2(479, 510)
+
+[node name="SummonTriggerLeft" parent="." instance=ExtResource("6_yxxav")]
+position = Vector2(-8, 0)
+
+[node name="BossTrigger" parent="." instance=ExtResource("7_01ylt")]
+position = Vector2(-12, -6)

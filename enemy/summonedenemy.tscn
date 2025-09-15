@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://1ufi3m1n6qs"]
+
+[ext_resource type="Texture2D" uid="uid://pa2epbhvni8u" path="res://images/enemysummoned.png" id="1_bm3oo"]
+[ext_resource type="Script" uid="uid://b52tna850hnvj" path="res://enemy/summonedenemy.gd" id="1_ktfn2"]
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_chcak"]
+[ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="4_hr8vj"]
+[ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="5_hr8vj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktfn2"]
+atlas = ExtResource("1_bm3oo")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h636v"]
+atlas = ExtResource("1_bm3oo")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chcak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktfn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h636v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm3oo"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uq6tl"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsb3v"]
+radius = 29.0
+
+[node name="Summonedenemy" type="CharacterBody2D"]
+script = ExtResource("1_ktfn2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -2)
+sprite_frames = SubResource("SpriteFrames_chcak")
+animation = &"walk"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_chcak")
+metadata/_custom_type_script = "uid://06nwsag16nhc"
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bm3oo")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_hr8vj")
+metadata/_custom_type_script = "uid://begmjljoie2aj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+shape = SubResource("CircleShape2D_uq6tl")
+
+[node name="EnemyHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_mask = 2
+script = ExtResource("5_hr8vj")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://dxubttw4vrt0r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
+shape = SubResource("CircleShape2D_dsb3v")

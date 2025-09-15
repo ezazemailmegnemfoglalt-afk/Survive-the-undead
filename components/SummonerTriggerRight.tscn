@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcku3rt0ciq4r"]
+
+[ext_resource type="Script" uid="uid://ctt6xnmg6b63j" path="res://components/summoner_trigger_right.gd" id="1_l8cuo"]
+[ext_resource type="PackedScene" uid="uid://cf2umr1ufn2u" path="res://enemy/summoner.tscn" id="2_x2uvg"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6nqju"]
+a = Vector2(54, 27)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5mhv6"]
+a = Vector2(345, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wo4rx"]
+a = Vector2(-81, -59)
+b = Vector2(-29, 18)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_guofd"]
+a = Vector2(-70, -112)
+b = Vector2(-79, -57)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_js7y0"]
+a = Vector2(-71, -112)
+b = Vector2(45, -143)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dbr62"]
+a = Vector2(41, -177)
+b = Vector2(46, -144)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cqmtb"]
+a = Vector2(5, -213)
+b = Vector2(40, -177)
+
+[node name="SummonerTriggerRight" type="Node2D"]
+
+[node name="SummonerTriggerRight" type="Area2D" parent="." node_paths=PackedStringArray("spawn_position")]
+position = Vector2(770, 386)
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_l8cuo")
+enemy_scene = ExtResource("2_x2uvg")
+spawn_position = NodePath("Node2D")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SummonerTriggerRight"]
+position = Vector2(-28, 10)
+shape = SubResource("SegmentShape2D_6nqju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SummonerTriggerRight"]
+position = Vector2(26, 26)
+shape = SubResource("SegmentShape2D_5mhv6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SummonerTriggerRight"]
+shape = SubResource("SegmentShape2D_wo4rx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SummonerTriggerRight"]
+shape = SubResource("SegmentShape2D_guofd")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SummonerTriggerRight"]
+shape = SubResource("SegmentShape2D_js7y0")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SummonerTriggerRight"]
+shape = SubResource("SegmentShape2D_dbr62")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SummonerTriggerRight"]
+shape = SubResource("SegmentShape2D_cqmtb")
+
+[node name="Node2D" type="Node2D" parent="SummonerTriggerRight"]
+position = Vector2(180, -108)
