@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://nm8fsqs3uv4s"]
+[gd_scene load_steps=14 format=3 uid="uid://nm8fsqs3uv4s"]
 
 [ext_resource type="Script" uid="uid://sdua1phwxv6a" path="res://player/player.gd" id="1_qc56l"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="2_8vso8"]
 [ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://bfm7dcta35h0c" path="res://components/PlayerHitBox.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://gkger2p1migj" path="res://components/PlayerHurtBox.gd" id="5_qjkh3"]
+[ext_resource type="Script" uid="uid://bmm1m0cj3bglt" path="res://player/stuff_pickup.gd" id="6_g6k8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oul6g"]
 atlas = ExtResource("2_yw30f")
@@ -36,6 +37,9 @@ radius = 26.1725
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6k8r"]
 radius = 19.105
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjkh3"]
+radius = 23.0217
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 17
@@ -76,3 +80,9 @@ metadata/_custom_type_script = "uid://gkger2p1migj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 shape = SubResource("CircleShape2D_g6k8r")
+
+[node name="StuffPickup" type="Area2D" parent="."]
+script = ExtResource("6_g6k8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StuffPickup"]
+shape = SubResource("CircleShape2D_qjkh3")

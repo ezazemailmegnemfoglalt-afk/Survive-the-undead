@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var heal_summon_scene: PackedScene
 @export var summon_scene: PackedScene
 @onready var health: Health = $Health
 @onready var health_label: Label = $HealthLabel
@@ -52,7 +53,16 @@ func summon():
 func _on_health_depleted():
 	queue_free()
 	print("summoner meghalt")
+	summon_heal()
 
 
 func _update_health_label():
 	health_label.text = "HP: %d" % health.health
+
+	
+func summon_heal():
+	anim.play("default")
+	if summon_scene:
+		var s = heal_summon_scene.instantiate()
+		s.global_position = global_position + Vector2(50, 0)
+		get_tree().current_scene.add_child(s)

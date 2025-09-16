@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://cx1f28358r863"]
+
+[ext_resource type="Script" uid="uid://cgd7is4wp3ni3" path="res://components/fistenemy.gd" id="1_0kv58"]
+[ext_resource type="Texture2D" uid="uid://ca8jw7jwy6a04" path="res://images/light_enemy.png" id="2_14x87"]
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_hsrbu"]
+[ext_resource type="Script" uid="uid://bpafjohu477d" path="res://components/HealingArea.gd" id="4_wpuii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsrbu"]
+atlas = ExtResource("2_14x87")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj8ga"]
+atlas = ExtResource("2_14x87")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chcak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsrbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj8ga")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm3oo"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kv58"]
+radius = 20.025
+
+[node name="HealingArea" type="CharacterBody2D"]
+script = ExtResource("1_0kv58")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -2)
+sprite_frames = SubResource("SpriteFrames_chcak")
+animation = &"walk"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_hsrbu")
+metadata/_custom_type_script = "uid://06nwsag16nhc"
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bm3oo")
+
+[node name="HealingArea" type="Area2D" parent="."]
+script = ExtResource("4_wpuii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealingArea"]
+shape = SubResource("CircleShape2D_0kv58")
