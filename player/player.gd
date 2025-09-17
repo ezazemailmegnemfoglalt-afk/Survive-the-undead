@@ -37,7 +37,7 @@ func _apply_attack():
 
 func _on_health_depleted():
 	queue_free()
-	print("player megdöglődött a gecibe")
+	print("player megdöglődött")
 
 func _update_health_label():
 	health_label.text = "HP: %d" % health.health

@@ -9,7 +9,7 @@ func _ready():
 	monitoring = true
 
 func _on_area_entered(area: Area2D):
-	if area is PlayerHitBox and area.monitoring:
+	if area is PlayerHitBox and area.monitoring and Input.is_action_just_pressed("attack"):
 		health.set_health(health.health - area.damage)
 		received_damage.emit(area.damage)
 		print("Enemy sebződött: %d" % area.damage)

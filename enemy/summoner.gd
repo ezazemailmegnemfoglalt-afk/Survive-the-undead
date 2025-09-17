@@ -52,6 +52,7 @@ func summon():
 
 func _on_health_depleted():
 	queue_free()
+	ScoreManager.add_point(5)
 	print("summoner meghalt")
 	summon_heal()
 
@@ -62,7 +63,7 @@ func _update_health_label():
 	
 func summon_heal():
 	anim.play("default")
-	if summon_scene:
+	if heal_summon_scene:
 		var s = heal_summon_scene.instantiate()
 		s.global_position = global_position + Vector2(50, 0)
 		get_tree().current_scene.add_child(s)

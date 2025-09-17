@@ -37,7 +37,16 @@ collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_l8cuo")
 enemy_scene = ExtResource("2_x2uvg")
-spawn_position = NodePath("Node2D")
+spawn_position = NodePath("Node2D3")
+
+[node name="Node2D3" type="Node2D" parent="SummonerTriggerRight"]
+position = Vector2(180, -108)
+
+[node name="Node2D" type="Node2D" parent="SummonerTriggerRight"]
+position = Vector2(321, -140)
+
+[node name="Node2D2" type="Node2D" parent="SummonerTriggerRight"]
+position = Vector2(93, -53)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SummonerTriggerRight"]
 position = Vector2(-28, 10)
@@ -61,6 +70,3 @@ shape = SubResource("SegmentShape2D_dbr62")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="SummonerTriggerRight"]
 shape = SubResource("SegmentShape2D_cqmtb")
-
-[node name="Node2D" type="Node2D" parent="SummonerTriggerRight"]
-position = Vector2(180, -108)

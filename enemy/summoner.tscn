@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://st2e7ru0wn0y" path="res://enemy/summoner.gd" id="1_0frf0"]
 [ext_resource type="Texture2D" uid="uid://drs73065wgyl0" path="res://images/summoner.png" id="1_tco8f"]
 [ext_resource type="PackedScene" uid="uid://1ufi3m1n6qs" path="res://enemy/summonedenemy.tscn" id="2_rf6s1"]
-[ext_resource type="PackedScene" uid="uid://cx1f28358r863" path="res://enemy/first_enemy.tscn" id="2_w2v3j"]
+[ext_resource type="PackedScene" uid="uid://c5md3jgljnbmx" path="res://components/sword.tscn" id="2_w2v3j"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_effkh"]
 [ext_resource type="Texture2D" uid="uid://cyfepiy5u6o2r" path="res://images/whilesummon-export.png" id="4_13jdv"]
 [ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="4_rf6s1"]

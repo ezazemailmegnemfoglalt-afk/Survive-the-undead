@@ -7,8 +7,8 @@ func _ready():
 	connect("body_entered", _on_body_entered)
 
 func _on_body_entered(body: Node):
-	if has_triggered:
-		return
+#	if has_triggered:
+#		return
 	if body.is_in_group("players") and enemy_scene:
 		has_triggered = true
 		_spawn_enemy()

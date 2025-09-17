@@ -94,7 +94,7 @@ metadata/_custom_type_script = "uid://dxubttw4vrt0r"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
 shape = SubResource("CircleShape2D_t4d2f")
 
-[node name="EnemyHitBox" type="Area2D" parent="."]
+[node name="EnemyHitBox" type="Area2D" parent="." groups=["emenies"]]
 script = ExtResource("8_pl2oa")
 damage = 0
 metadata/_custom_type_script = "uid://begmjljoie2aj"

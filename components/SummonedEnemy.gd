@@ -1,10 +1,11 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
-@export var speed: float = 10.0
+@export var speed: float = 60.0 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health: Health = $Health
 @onready var health_label: Label = $HealthLabel
 
-var target: Node = null
+var target: Node = null 
 
 func _ready():
 	target = get_tree().get_first_node_in_group("players")
@@ -18,10 +19,11 @@ func _physics_process(delta):
 		velocity = dir * speed
 		move_and_slide()
 
+
 func _on_health_depleted():
-	ScoreManager.add_point(1)
+	ScoreManager.add_point(10)
 	queue_free()
-	print("You killed the Boss! +10")
+	print("Enemy dead")
 
 func _update_health_label():
 	health_label.text = "HP: %d" % health.health
