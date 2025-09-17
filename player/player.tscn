@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://nm8fsqs3uv4s"]
+[gd_scene load_steps=13 format=3 uid="uid://nm8fsqs3uv4s"]
 
 [ext_resource type="Script" uid="uid://sdua1phwxv6a" path="res://player/player.gd" id="1_qc56l"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="2_8vso8"]
 [ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://bfm7dcta35h0c" path="res://components/PlayerHitBox.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://gkger2p1migj" path="res://components/PlayerHurtBox.gd" id="5_qjkh3"]
+[ext_resource type="Script" uid="uid://c1rooi4sgdvk" path="res://components/points_label.gd" id="6_g6k8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oul6g"]
 atlas = ExtResource("2_yw30f")
@@ -53,22 +54,27 @@ max_health = 100
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_oul6g")
 
 [node name="HealthLabel" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 98
 collision_mask = 49
 script = ExtResource("3_g1dw6")
 metadata/_custom_type_script = "uid://bfm7dcta35h0c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+visible = false
 shape = SubResource("CircleShape2D_yw30f")
 
 [node name="PlayerHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("5_qjkh3")
@@ -76,6 +82,14 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://gkger2p1migj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
+visible = false
 shape = SubResource("CircleShape2D_g6k8r")
+
+[node name="PointsLabel" type="Label" parent="."]
+offset_left = -109.0
+offset_top = -69.0
+offset_right = -74.0
+offset_bottom = -46.0
+script = ExtResource("6_g6k8r")
 
 [connection signal="area_entered" from="PlayerHitBox" to="PlayerHitBox" method="_on_area_entered"]

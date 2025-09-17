@@ -17,6 +17,7 @@ func _physics_process(delta):
 	if target:
 		var dir = (target.global_position - global_position).normalized()
 		velocity = dir * speed
+		anim.play("walk")
 		move_and_slide()
 
 
