@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://djs8lhiecgo5k"]
+
+[ext_resource type="Script" uid="uid://cpjf0k7h52jdq" path="res://menu/main_menu.gd" id="1_0gkbj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 355.0
+offset_top = 43.0
+offset_right = 355.0
+offset_bottom = 43.0
+script = ExtResource("1_0gkbj")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -30.0
+offset_right = 38.0
+offset_bottom = -7.0
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 153.0
+offset_right = 441.0
+offset_bottom = 216.0
+
+[node name="Button" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="ButtonContainer2" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 208.0
+offset_right = 441.0
+offset_bottom = 271.0
+
+[node name="Button2" type="Button" parent="ButtonContainer2"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="ButtonContainer3" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 259.0
+offset_right = 441.0
+offset_bottom = 322.0
+
+[node name="Button3" type="Button" parent="ButtonContainer3"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="ButtonContainer4" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 318.0
+offset_right = 441.0
+offset_bottom = 381.0
+
+[node name="Button4" type="Button" parent="ButtonContainer4"]
+layout_mode = 2
+text = "Play"
+
+[node name="ButtonContainer5" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 371.0
+offset_right = 441.0
+offset_bottom = 434.0
+
+[node name="Button5" type="Button" parent="ButtonContainer5"]
+layout_mode = 2
+text = "Level 5"

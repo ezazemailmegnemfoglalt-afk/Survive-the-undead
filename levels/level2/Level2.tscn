@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvw2mo02ian2"]
+
+[ext_resource type="PackedScene" uid="uid://bbyb7mf4d0y6g" path="res://levels/map2.tscn" id="1_wa4t3"]
+[ext_resource type="PackedScene" uid="uid://bybcm7qlrc7oq" path="res://levels/Level1/summoner_trigger_1.tscn" id="2_x7s5r"]
+
+[node name="Level 2" type="Node2D"]
+
+[node name="Map2" parent="." instance=ExtResource("1_wa4t3")]
+position = Vector2(0, 3)
+
+[node name="SummonerTrigger1" parent="." instance=ExtResource("2_x7s5r")]
+position = Vector2(-3, -5)
