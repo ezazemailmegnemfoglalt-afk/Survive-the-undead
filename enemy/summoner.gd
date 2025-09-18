@@ -36,11 +36,13 @@ func _on_summon_timer_timeout():
 
 	summon()
 
+	
+	
 func _play_summon_animation():
-	anim.play("summoning")  # feltételezve, hogy van ilyen nevű animáció
-	await anim.animation_finished
-	anim.play("default") 
+	anim.play("summoning")
 
+	
+	
 func summon():
 	anim.play("default")
 	if summon_scene:
@@ -48,7 +50,8 @@ func summon():
 			var s = summon_scene.instantiate()
 			s.global_position = global_position + Vector2(50 * i, 0)
 			get_tree().current_scene.add_child(s)
-			anim.play("summoning")
+
+
 
 func _on_health_depleted():
 	queue_free()

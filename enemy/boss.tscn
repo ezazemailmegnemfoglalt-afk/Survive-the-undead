@@ -24,7 +24,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_s5683")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -43,6 +43,9 @@ script = ExtResource("1_svpuv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -2)
 sprite_frames = SubResource("SpriteFrames_178tv")
+animation = &"walk"
+frame = 1
+frame_progress = 0.911005
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_oqtpg")
@@ -73,7 +76,3 @@ metadata/_custom_type_script = "uid://dxubttw4vrt0r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
 shape = SubResource("CircleShape2D_dsb3v")
-
-[node name="Game finished!" type="Label" parent="." groups=["emenies"]]
-offset_right = 40.0
-offset_bottom = 23.0
