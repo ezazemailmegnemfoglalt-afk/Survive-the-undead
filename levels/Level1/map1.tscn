@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://u6nqxccait55"]
+
+[ext_resource type="Texture2D" uid="uid://cngmrjrmuekao" path="res://images/background3.png" id="1_bfjhi"]
+[ext_resource type="PackedScene" uid="uid://bblkwrin4kr8j" path="res://levels/Level1/enemy_summoner.tscn" id="2_5awtg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background3" type="Sprite2D" parent="."]
+position = Vector2(574, 324.5)
+scale = Vector2(5.76, 3.235)
+texture = ExtResource("1_bfjhi")
+
+[node name="EnemySummoner" parent="." instance=ExtResource("2_5awtg")]
+position = Vector2(4, -6)

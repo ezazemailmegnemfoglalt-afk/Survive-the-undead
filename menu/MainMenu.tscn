@@ -19,7 +19,6 @@ offset_right = 38.0
 offset_bottom = -7.0
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -15.0
 offset_top = 153.0

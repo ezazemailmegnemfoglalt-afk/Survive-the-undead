@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ch4ja83gkjchd"]
+[gd_scene load_steps=7 format=3 uid="uid://dopf7hugbn0a0"]
 
 [ext_resource type="PackedScene" uid="uid://dmhhkwfkqdqrs" path="res://components/map_4.tscn" id="1_qqhij"]
 [ext_resource type="Script" uid="uid://bnt6uqtrtpd8s" path="res://addons/godot_super-wakatime/game.tres.gd" id="1_yxxav"]
-[ext_resource type="PackedScene" uid="uid://ikcapdkkee52" path="res://components/SummonerTriggerRight.tscn" id="2_qqhij"]
+[ext_resource type="PackedScene" uid="uid://bcku3rt0ciq4r" path="res://levels/Level4/enemies/Summoners/SummonerTriggerRight.tscn" id="2_qqhij"]
 [ext_resource type="PackedScene" uid="uid://nm8fsqs3uv4s" path="res://player/player.tscn" id="4_to5d1"]
-[ext_resource type="PackedScene" uid="uid://bi4kwubucb11k" path="res://components/summon_trigger_left.tscn" id="6_yxxav"]
-[ext_resource type="PackedScene" uid="uid://dmcs3ir8cc5cd" path="res://levels/Level4/boss_trigger.tscn" id="7_4pkyo"]
-[ext_resource type="PackedScene" uid="uid://c8at27tddchyp" path="res://enemy/BasicEnemies/summonedenemy.tscn" id="7_nweuk"]
+[ext_resource type="PackedScene" uid="uid://dmcs3ir8cc5cd" path="res://levels/Level4/enemies/Bosses/boss_trigger.tscn" id="6_bljxl"]
+[ext_resource type="PackedScene" uid="uid://bi4kwubucb11k" path="res://levels/Level4/enemies/Summoners/summon_trigger_left.tscn" id="6_yxxav"]
 
 [node name="FirstGameBattle" type="Node2D"]
 script = ExtResource("1_yxxav")
@@ -17,9 +16,6 @@ position = Vector2(-9, 0)
 [node name="SummonerTriggerRight" parent="." instance=ExtResource("2_qqhij")]
 position = Vector2(-2, 2)
 
-[node name="SummonTriggerLeft" parent="." instance=ExtResource("6_yxxav")]
-position = Vector2(-8, 0)
-
 [node name="Player" parent="." instance=ExtResource("4_to5d1")]
 position = Vector2(479, 510)
 
@@ -28,10 +24,10 @@ position = Vector2(-1, 1)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
-[node name="Summonedenemy" parent="." instance=ExtResource("7_nweuk")]
-position = Vector2(380, 491)
-
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 
-[node name="BossTrigger" parent="." instance=ExtResource("7_4pkyo")]
-position = Vector2(-7, -7)
+[node name="BossTrigger" parent="." instance=ExtResource("6_bljxl")]
+position = Vector2(-6, -9)
+
+[node name="SummonTriggerLeft2" parent="." instance=ExtResource("6_yxxav")]
+position = Vector2(-7, -5)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0rjt5psdcqe"]
+
+[ext_resource type="PackedScene" uid="uid://u6nqxccait55" path="res://levels/Level1/map1.tscn" id="1_71qiq"]
+[ext_resource type="PackedScene" uid="uid://nm8fsqs3uv4s" path="res://player/player.tscn" id="2_vh5mm"]
+[ext_resource type="PackedScene" uid="uid://bblkwrin4kr8j" path="res://levels/Level1/enemy_summoner.tscn" id="3_vh5mm"]
+[ext_resource type="PackedScene" uid="uid://bgwvp7fjyn57g" path="res://levels/Level1/border_1.tscn" id="4_xj7mg"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_71qiq")]
+position = Vector2(2, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_vh5mm")]
+position = Vector2(578, 526)
+
+[node name="EnemySummoner" parent="." instance=ExtResource("3_vh5mm")]
+position = Vector2(0, 1)
+
+[node name="Border1" parent="." instance=ExtResource("4_xj7mg")]
+position = Vector2(1, 3)

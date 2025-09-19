@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqm4ypw43i2kv"]
+
+[ext_resource type="Script" uid="uid://bm40kx2bgcne1" path="res://levels/Level4/enemies/BasicEnemies/SummonedEnemy.gd" id="1_hr8vj"]
+[ext_resource type="Texture2D" uid="uid://ca8jw7jwy6a04" path="res://images/light_enemy.png" id="2_uq6tl"]
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_chcak"]
+[ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="4_hr8vj"]
+[ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="5_hr8vj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsrbu"]
+atlas = ExtResource("2_uq6tl")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj8ga"]
+atlas = ExtResource("2_uq6tl")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chcak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsrbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj8ga")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm3oo"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uq6tl"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsb3v"]
+radius = 29.0
+
+[node name="Summonedenemy" type="CharacterBody2D"]
+script = ExtResource("1_hr8vj")
+speed = 75.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -2)
+sprite_frames = SubResource("SpriteFrames_chcak")
+animation = &"walk"
+
+[node name="Health" type="Node" parent="." groups=["emenies"]]
+script = ExtResource("3_chcak")
+max_health = 30
+metadata/_custom_type_script = "uid://06nwsag16nhc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bm3oo")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_hr8vj")
+damage = 20
+metadata/_custom_type_script = "uid://begmjljoie2aj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+shape = SubResource("CircleShape2D_uq6tl")
+
+[node name="EnemyHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_mask = 2
+script = ExtResource("5_hr8vj")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://dxubttw4vrt0r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
+shape = SubResource("CircleShape2D_dsb3v")
