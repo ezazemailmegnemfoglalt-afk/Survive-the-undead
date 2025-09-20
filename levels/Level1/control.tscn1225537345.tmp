@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://kvebnrxh4g"]
+
+[ext_resource type="Script" uid="uid://x52wdc7hfb5u" path="res://levels/Level1/PauseMenu.gd" id="1_56ect"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_56ect")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -2.0
+offset_top = -30.0
+offset_right = 38.0
+offset_bottom = -7.0
+
+[node name="Resume" type="VBoxContainer" parent="."]
+offset_left = 347.0
+offset_top = 243.0
+offset_right = 803.0
+offset_bottom = 433.0
+
+[node name="Button" type="Button" parent="Resume"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Exit" type="VBoxContainer" parent="."]
+offset_left = 349.0
+offset_top = 81.0
+offset_right = 808.0
+offset_bottom = 286.0
+
+[node name="Button2" type="Button" parent="Exit"]
+layout_mode = 2
+text = "Exit 
+"

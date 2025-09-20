@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0rjt5psdcqe"]
+[gd_scene load_steps=7 format=3 uid="uid://b0rjt5psdcqe"]
 
 [ext_resource type="PackedScene" uid="uid://u6nqxccait55" path="res://levels/Level1/map1.tscn" id="1_71qiq"]
+[ext_resource type="Script" uid="uid://bhlqnh1vyy2cu" path="res://levels/Level1/level_1.gd" id="1_p10lv"]
 [ext_resource type="PackedScene" uid="uid://nm8fsqs3uv4s" path="res://player/player.tscn" id="2_vh5mm"]
 [ext_resource type="PackedScene" uid="uid://bblkwrin4kr8j" path="res://levels/Level1/enemy_summoner.tscn" id="3_vh5mm"]
 [ext_resource type="PackedScene" uid="uid://bgwvp7fjyn57g" path="res://levels/Level1/border_1.tscn" id="4_xj7mg"]
+[ext_resource type="PackedScene" uid="uid://kvebnrxh4g" path="res://levels/Level1/control.tscn" id="6_4p8ex"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_p10lv")
 
 [node name="Node2D" parent="." instance=ExtResource("1_71qiq")]
 position = Vector2(2, 4)
@@ -13,8 +16,19 @@ position = Vector2(2, 4)
 [node name="Player" parent="." instance=ExtResource("2_vh5mm")]
 position = Vector2(578, 526)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 1)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("6_4p8ex")]
+offset_left = -577.0
+offset_top = -179.0
+offset_right = -577.0
+offset_bottom = -179.0
+
 [node name="EnemySummoner" parent="." instance=ExtResource("3_vh5mm")]
 position = Vector2(0, 1)
 
 [node name="Border1" parent="." instance=ExtResource("4_xj7mg")]
-position = Vector2(1, 3)
+position = Vector2(1, 1)

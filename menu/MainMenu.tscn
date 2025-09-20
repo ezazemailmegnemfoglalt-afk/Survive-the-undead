@@ -62,7 +62,7 @@ offset_bottom = 381.0
 
 [node name="Button4" type="Button" parent="ButtonContainer4"]
 layout_mode = 2
-text = "Play"
+text = "Level 2"
 
 [node name="ButtonContainer5" type="VBoxContainer" parent="."]
 visible = false

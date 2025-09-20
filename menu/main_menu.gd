@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$ButtonContainer/Button.pressed.connect(func(): _load_level("res://levels/Level1/Level_1.tscn"))
+	$ButtonContainer/Button.pressed.connect(func(): _load_level("res://levels/Level1/level_1.tscn"))
 	#$ButtonContainer2/Button2.pressed.connect(func(): _load_level("res://levels/Level2.tscn"))
 	#$ButtonContainer3/Button3.pressed.connect(func(): _load_level("res://levels/Level3.tscn"))
 	$ButtonContainer4/Button4.pressed.connect(func(): _load_level("res://levels/Level4/Level4.tres.tscn"))
