@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dopf7hugbn0a0"]
+[gd_scene load_steps=9 format=3 uid="uid://dopf7hugbn0a0"]
 
 [ext_resource type="PackedScene" uid="uid://dmhhkwfkqdqrs" path="res://components/map_4.tscn" id="1_qqhij"]
 [ext_resource type="Script" uid="uid://bnt6uqtrtpd8s" path="res://addons/godot_super-wakatime/game.tres.gd" id="1_yxxav"]
 [ext_resource type="PackedScene" uid="uid://bcku3rt0ciq4r" path="res://levels/Level4/enemies/Summoners/SummonerTriggerRight.tscn" id="2_qqhij"]
 [ext_resource type="PackedScene" uid="uid://nm8fsqs3uv4s" path="res://player/player.tscn" id="4_to5d1"]
 [ext_resource type="PackedScene" uid="uid://ccbpo3xwullf0" path="res://levels/Level1/PauseMenu.tscn" id="5_gb0gu"]
+[ext_resource type="AudioStream" uid="uid://dvxyua08ps1ys" path="res://Új mappa/GameMusic1.ogg" id="6_3qj7w"]
 [ext_resource type="PackedScene" uid="uid://dmcs3ir8cc5cd" path="res://levels/Level4/enemies/Bosses/boss_trigger.tscn" id="6_bljxl"]
 [ext_resource type="PackedScene" uid="uid://bi4kwubucb11k" path="res://levels/Level4/enemies/Summoners/summon_trigger_left.tscn" id="6_yxxav"]
 
@@ -32,6 +33,10 @@ offset_right = -588.0
 offset_bottom = -166.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_3qj7w")
+autoplay = true
+parameters/looping = true
 
 [node name="BossTrigger" parent="." instance=ExtResource("6_bljxl")]
 position = Vector2(-6, -9)

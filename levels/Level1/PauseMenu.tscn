@@ -15,6 +15,7 @@ offset_right = 1145.0
 offset_bottom = 649.0
 
 [node name="Title" type="Label" parent="Panel"]
+process_mode = 3
 layout_mode = 0
 offset_left = -2.0
 offset_top = -30.0
@@ -37,10 +38,10 @@ text = "Resume (Esc)"
 [node name="Exit" type="VBoxContainer" parent="Panel"]
 process_mode = 3
 layout_mode = 0
-offset_left = 349.0
-offset_top = 81.0
-offset_right = 808.0
-offset_bottom = 286.0
+offset_left = 338.0
+offset_top = 102.0
+offset_right = 797.0
+offset_bottom = 178.0
 
 [node name="Button2" type="Button" parent="Panel/Exit"]
 process_mode = 3
