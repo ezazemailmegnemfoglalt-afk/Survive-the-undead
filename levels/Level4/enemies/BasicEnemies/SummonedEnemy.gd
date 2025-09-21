@@ -13,6 +13,7 @@ func _ready():
 	health.health_changed.connect(_update_health_label)
 	_update_health_label()
 
+
 func _physics_process(delta):
 	if target:
 		var dir = (target.global_position - global_position).normalized()

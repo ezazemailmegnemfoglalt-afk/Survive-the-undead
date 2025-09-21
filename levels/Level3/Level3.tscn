@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ymsbkn1haxid"]
+
+[ext_resource type="PackedScene" uid="uid://ccmt6t01yqiiu" path="res://levels/Level3/Map3.tscn" id="1_umiwy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map3" parent="." instance=ExtResource("1_umiwy")]
+position = Vector2(1, 2)

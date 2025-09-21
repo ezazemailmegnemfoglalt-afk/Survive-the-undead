@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dopf7hugbn0a0"]
+[gd_scene load_steps=11 format=3 uid="uid://dopf7hugbn0a0"]
 
 [ext_resource type="PackedScene" uid="uid://dmhhkwfkqdqrs" path="res://components/map_4.tscn" id="1_qqhij"]
 [ext_resource type="Script" uid="uid://bnt6uqtrtpd8s" path="res://addons/godot_super-wakatime/game.tres.gd" id="1_yxxav"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ccbpo3xwullf0" path="res://levels/Level1/PauseMenu.tscn" id="5_gb0gu"]
 [ext_resource type="AudioStream" uid="uid://dvxyua08ps1ys" path="res://Új mappa/GameMusic1.ogg" id="6_3qj7w"]
 [ext_resource type="PackedScene" uid="uid://dmcs3ir8cc5cd" path="res://levels/Level4/enemies/Bosses/boss_trigger.tscn" id="6_bljxl"]
-[ext_resource type="PackedScene" uid="uid://cg47bgngb5tpb" path="res://components/EndMenuBad.tscn" id="6_cf4jw"]
 [ext_resource type="PackedScene" uid="uid://bi4kwubucb11k" path="res://levels/Level4/enemies/Summoners/summon_trigger_left.tscn" id="6_yxxav"]
+[ext_resource type="PackedScene" uid="uid://b6edibfjose38" path="res://levels/Level4/enemies/Bosses/boss.tscn" id="8_npf8w"]
+[ext_resource type="Script" uid="uid://lr3y7xup38kj" path="res://levels/Level4/end.gd" id="10_pjwmg"]
 
 [node name="FirstGameBattle" type="Node2D"]
 script = ExtResource("1_yxxav")
@@ -42,11 +43,13 @@ parameters/looping = true
 [node name="BossTrigger" parent="." instance=ExtResource("6_bljxl")]
 position = Vector2(-6, -9)
 
+[node name="Boss" parent="BossTrigger" instance=ExtResource("8_npf8w")]
+position = Vector2(553, 99)
+
 [node name="SummonTriggerLeft2" parent="." instance=ExtResource("6_yxxav")]
 position = Vector2(-11, -1)
 
-[node name="EndMenuBad" parent="." instance=ExtResource("6_cf4jw")]
-offset_left = -110.0
-offset_top = 345.0
-offset_right = -110.0
-offset_bottom = 345.0
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("10_pjwmg")

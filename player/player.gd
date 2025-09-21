@@ -37,7 +37,11 @@ func _apply_attack():
 
 func _on_health_depleted():
 	queue_free()
-	print("player megdöglődött")
+	var end_menu_scene = load("res://components/EndMenuBad.tscn")
+	var end_menu = end_menu_scene.instantiate()
+	get_tree().current_scene.add_child(end_menu)
+	end_menu.visible = true
+
 
 func _update_health_label():
 	health_label.text = "HP: %d" % health.health

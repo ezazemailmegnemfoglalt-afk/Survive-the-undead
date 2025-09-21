@@ -24,6 +24,9 @@ func _on_health_depleted():
 	ScoreManager.add_point(1)
 	queue_free()
 	print("You killed the Boss! +10")
+	var pause_menu = get_tree().current_scene.get_node("PauseMenu")
+	if pause_menu:
+		pause_menu.visibel = true
 
 func _update_health_label():
 	health_label.text = "HP: %d" % health.health
