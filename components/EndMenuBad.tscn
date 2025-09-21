@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg47bgngb5tpb"]
+
+[ext_resource type="Script" uid="uid://m3av87tdam3t" path="res://components/end_menu_bad.gd" id="1_r5uyx"]
+
+[node name="End" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r5uyx")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+
+[node name="Title" type="Label" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = -2.0
+offset_top = -30.0
+offset_right = 38.0
+offset_bottom = -7.0
+
+[node name="Retry" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 347.0
+offset_top = 243.0
+offset_right = 803.0
+offset_bottom = 433.0
+
+[node name="Button" type="Button" parent="Panel/Retry"]
+process_mode = 3
+layout_mode = 2
+text = "Retry"
+
+[node name="Exit" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 338.0
+offset_top = 102.0
+offset_right = 797.0
+offset_bottom = 178.0
+
+[node name="Button2" type="Button" parent="Panel/Exit"]
+process_mode = 3
+layout_mode = 2
+text = "Exit 
+"
