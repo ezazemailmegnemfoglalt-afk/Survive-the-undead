@@ -6,7 +6,8 @@ func _ready():
 	#$ButtonContainer3/Button3.pressed.connect(func(): _load_level("res://levels/Level3.tscn"))
 	$ButtonContainer4/Button4.pressed.connect(func(): _load_level("res://levels/Level4/Level4.tres.tscn"))
 	#$ButtonContainer5/Button5.pressed.connect(func(): _load_level("res://levels/Level5.tscn"))
-
+	#$ButtonContainer5/Button5.pressed.connect(func(): _load_level("res://levels/Level5.tscn"))
+	#$ButtonContainer5/Button5.pressed.connect(func(): _load_level("res://levels/Level5.tscn"))
 
 func _load_level(path: String):
 	var level = load(path)

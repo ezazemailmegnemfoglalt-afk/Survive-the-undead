@@ -26,6 +26,7 @@ func _physics_process(delta):
 		_apply_attack()
 
 func _apply_attack():
+	anim.play("attack")
 	var overlapping = hitbox.get_overlapping_areas()
 	for area in overlapping:
 		if area is EnemyHurtBox:

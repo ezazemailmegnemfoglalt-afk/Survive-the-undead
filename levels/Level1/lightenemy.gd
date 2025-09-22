@@ -1,8 +1,7 @@
 extends CharacterBody2D 
 
-@export var speed: float = 60.0 
+@export var speed: float = 120.0 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: EnemyHitBox = $EnemyHitBox
 @onready var health: Health = $Health
 @onready var health_label: Label = $HealthLabel
 

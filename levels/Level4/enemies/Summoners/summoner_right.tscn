@@ -78,6 +78,7 @@ animation = &"summoning"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("6_bua3c")
+max_health = 30
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

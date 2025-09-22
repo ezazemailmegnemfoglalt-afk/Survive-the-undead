@@ -75,3 +75,25 @@ offset_bottom = 434.0
 [node name="Button5" type="Button" parent="ButtonContainer5"]
 layout_mode = 2
 text = "Level 5"
+
+[node name="ButtonContainer6" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 676.0
+offset_top = -25.0
+offset_right = 788.0
+offset_bottom = 41.0
+
+[node name="muteoff" type="Button" parent="ButtonContainer6"]
+layout_mode = 2
+text = "Mute: Off"
+
+[node name="ButtonContainer7" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 676.0
+offset_top = -25.0
+offset_right = 788.0
+offset_bottom = 41.0
+
+[node name="muteoff" type="Button" parent="ButtonContainer7"]
+layout_mode = 2
+text = "Mute: On"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6edibfjose38"]
 
-[ext_resource type="Script" uid="uid://bm40kx2bgcne1" path="res://components/SummonedEnemy.gd" id="1_svpuv"]
+[ext_resource type="Script" uid="uid://bm40kx2bgcne1" path="res://levels/Level4/enemies/BasicEnemies/SummonedEnemy.gd" id="1_svpuv"]
 [ext_resource type="Texture2D" uid="uid://cbfnyd1skbit5" path="res://images/firstboss.png" id="2_n3pxx"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_oqtpg"]
 [ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="4_5r480"]
@@ -49,7 +49,7 @@ frame_progress = 0.911005
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_oqtpg")
-max_health = 125
+max_health = 500
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
 [node name="HealthLabel" type="Label" parent="."]
@@ -63,6 +63,7 @@ shape = SubResource("CircleShape2D_bm3oo")
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("4_5r480")
+damage = 20
 metadata/_custom_type_script = "uid://begmjljoie2aj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]

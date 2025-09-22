@@ -1,27 +1,27 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqm4ypw43i2kv"]
 
 [ext_resource type="Script" uid="uid://bm40kx2bgcne1" path="res://levels/Level4/enemies/BasicEnemies/SummonedEnemy.gd" id="1_hr8vj"]
-[ext_resource type="Texture2D" uid="uid://ca8jw7jwy6a04" path="res://images/light_enemy.png" id="2_uq6tl"]
-[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_chcak"]
+[ext_resource type="Texture2D" uid="uid://pa2epbhvni8u" path="res://images/enemysummoned.png" id="2_uw1rn"]
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="3_uw1rn"]
 [ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="4_hr8vj"]
 [ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="5_hr8vj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hsrbu"]
-atlas = ExtResource("2_uq6tl")
-region = Rect2(0, 0, 40, 40)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o8j8"]
+atlas = ExtResource("2_uw1rn")
+region = Rect2(0, 0, 30, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hj8ga"]
-atlas = ExtResource("2_uq6tl")
-region = Rect2(40, 0, 40, 40)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2d65"]
+atlas = ExtResource("2_uw1rn")
+region = Rect2(30, 0, 30, 30)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_chcak"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyngb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hsrbu")
+"texture": SubResource("AtlasTexture_2o8j8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hj8ga")
+"texture": SubResource("AtlasTexture_o2d65")
 }],
 "loop": true,
 "name": &"walk",
@@ -43,12 +43,13 @@ speed = 75.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -2)
-sprite_frames = SubResource("SpriteFrames_chcak")
+sprite_frames = SubResource("SpriteFrames_pyngb")
 animation = &"walk"
+frame_progress = 0.355346
 
-[node name="Health" type="Node" parent="." groups=["emenies"]]
-script = ExtResource("3_chcak")
-max_health = 30
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_uw1rn")
+max_health = 40
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

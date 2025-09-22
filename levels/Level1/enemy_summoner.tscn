@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c3pfarfbkbie3" path="res://levels/Level1/enemy_summoner.gd" id="1_1j6ev"]
 [ext_resource type="PackedScene" uid="uid://c5md3jgljnbmx" path="res://components/sword.tscn" id="2_805cq"]
-[ext_resource type="PackedScene" uid="uid://dqm4ypw43i2kv" path="res://levels/Level4/enemies/BasicEnemies/summonedenemy.tscn" id="2_nwpgh"]
+[ext_resource type="PackedScene" uid="uid://dyyrsrpvt4bcj" path="res://levels/Level1/lightenemy.tscn" id="3_nwpgh"]
 
 [node name="EnemySummoner" type="Node2D"]
 script = ExtResource("1_1j6ev")
 sword_scene = ExtResource("2_805cq")
-spawnn_interval = 20.0
-summon_scene = ExtResource("2_nwpgh")
+spawnn_interval = 2.0
+summon_scene = ExtResource("3_nwpgh")
 spawn_interval = 10.0
 enemy_count = 5
 

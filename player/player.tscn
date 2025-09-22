@@ -1,11 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://nm8fsqs3uv4s"]
+[gd_scene load_steps=19 format=3 uid="uid://nm8fsqs3uv4s"]
 
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="1_g6k8r"]
 [ext_resource type="Script" uid="uid://sdua1phwxv6a" path="res://player/player.gd" id="1_qc56l"]
-[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="2_8vso8"]
+[ext_resource type="Texture2D" uid="uid://bew8b1nupr8uq" path="res://images/attackplayer.png" id="2_boad6"]
 [ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://bfm7dcta35h0c" path="res://components/PlayerHitBox.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://gkger2p1migj" path="res://components/PlayerHurtBox.gd" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://c1rooi4sgdvk" path="res://components/points_label.gd" id="6_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://cg47bgngb5tpb" path="res://components/EndMenuBad.tscn" id="8_rgyib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
+atlas = ExtResource("2_boad6")
+region = Rect2(0, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg6s5"]
+atlas = ExtResource("2_boad6")
+region = Rect2(55, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
+atlas = ExtResource("2_boad6")
+region = Rect2(110, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
+atlas = ExtResource("2_boad6")
+region = Rect2(165, 0, 55, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oul6g"]
 atlas = ExtResource("2_yw30f")
@@ -17,6 +35,23 @@ region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1dw6"]
 animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_rgyib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg6s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t03j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ieo8")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oul6g")
@@ -46,35 +81,33 @@ script = ExtResource("1_qc56l")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -2)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"walk"
+animation = &"attack"
+frame = 3
+frame_progress = 0.572931
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oul6g")
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource("2_8vso8")
+script = ExtResource("1_g6k8r")
 max_health = 100
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_oul6g")
-
 [node name="HealthLabel" type="Label" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 98
 collision_mask = 49
 script = ExtResource("3_g1dw6")
+damage = 10
 metadata/_custom_type_script = "uid://bfm7dcta35h0c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
-visible = false
 shape = SubResource("CircleShape2D_yw30f")
 
 [node name="PlayerHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
-visible = false
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("5_qjkh3")
@@ -82,7 +115,6 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://gkger2p1migj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
-visible = false
 shape = SubResource("CircleShape2D_g6k8r")
 
 [node name="PointsLabel" type="Label" parent="."]
@@ -91,5 +123,11 @@ offset_top = -69.0
 offset_right = -74.0
 offset_bottom = -46.0
 script = ExtResource("6_g6k8r")
+
+[node name="End" parent="." instance=ExtResource("8_rgyib")]
+offset_left = -553.0
+offset_top = -179.0
+offset_right = -540.0
+offset_bottom = -179.0
 
 [connection signal="area_entered" from="PlayerHitBox" to="PlayerHitBox" method="_on_area_entered"]
