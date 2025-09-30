@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxcxu0m8wosce"]
+
+[ext_resource type="Script" uid="uid://cmul0kcmeoo7" path="res://player/UIManager.gd" id="1_ml4jx"]
+
+[node name="UIManager" type="CanvasLayer" node_paths=PackedStringArray("health_label", "health_value", "score_label", "score_value", "damage_label", "damage_value")]
+script = ExtResource("1_ml4jx")
+health_label = NodePath("UIRoot/VBoxContainer/HBoxContainer3/HealthLabel")
+health_value = NodePath("UIRoot/VBoxContainer/HBoxContainer3/HealthValue")
+score_label = NodePath("UIRoot/VBoxContainer/HBoxContainer/ScoreLabel")
+score_value = NodePath("UIRoot/VBoxContainer/HBoxContainer/ScoreValue")
+damage_label = NodePath("UIRoot/VBoxContainer/HBoxContainer2/DamageLabel")
+damage_value = NodePath("UIRoot/VBoxContainer/HBoxContainer2/DamageValue")
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 317.0
+offset_bottom = 194.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIRoot/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+
+[node name="ScoreValue" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIRoot/VBoxContainer"]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Damage: "
+
+[node name="DamageValue" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIRoot/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "HP: "
+
+[node name="HealthValue" type="Label" parent="UIRoot/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
