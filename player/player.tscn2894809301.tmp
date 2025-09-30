@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://nm8fsqs3uv4s"]
+[gd_scene load_steps=21 format=3 uid="uid://nm8fsqs3uv4s"]
 
+[ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="1_g6k8r"]
 [ext_resource type="Script" uid="uid://sdua1phwxv6a" path="res://player/player.gd" id="1_qc56l"]
 [ext_resource type="Texture2D" uid="uid://bew8b1nupr8uq" path="res://images/attackplayer.png" id="2_boad6"]
 [ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://bfm7dcta35h0c" path="res://components/PlayerHitBox.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://gkger2p1migj" path="res://components/PlayerHurtBox.gd" id="5_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://cg47bgngb5tpb" path="res://components/EndMenuBad.tscn" id="8_rgyib"]
-[ext_resource type="PackedScene" uid="uid://bxcxu0m8wosce" path="res://UIManager/UIManager.tscn" id="9_8t03j"]
 [ext_resource type="PackedScene" uid="uid://ccbpo3xwullf0" path="res://levels/Level1/PauseMenu.tscn" id="9_hg6s5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
@@ -85,6 +85,10 @@ radius = 26.1725
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6k8r"]
 radius = 19.105
 
+[sub_resource type="GDScript" id="GDScript_rgyib"]
+script/source = "
+"
+
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_layer = 17
 collision_mask = 33
@@ -98,6 +102,11 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_oul6g")
 
+[node name="Health" type="Node" parent="."]
+script = ExtResource("1_g6k8r")
+max_health = 100
+metadata/_custom_type_script = "uid://06nwsag16nhc"
+
 [node name="PlayerHitBox" type="Area2D" parent="."]
 collision_layer = 98
 collision_mask = 49
@@ -108,10 +117,11 @@ metadata/_custom_type_script = "uid://bfm7dcta35h0c"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
 shape = SubResource("CircleShape2D_yw30f")
 
-[node name="PlayerHurtBox" type="Area2D" parent="."]
+[node name="PlayerHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("5_qjkh3")
+health = NodePath("../Health")
 metadata/_custom_type_script = "uid://gkger2p1migj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
@@ -123,20 +133,39 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="PauseMenu" parent="Camera2D2" instance=ExtResource("9_hg6s5")]
-top_level = false
 offset_left = -554.0
 offset_top = -177.0
 offset_right = -554.0
 offset_bottom = -177.0
 
 [node name="EndMenuBad" parent="Camera2D2" instance=ExtResource("8_rgyib")]
-top_level = false
 offset_left = -568.0
 offset_top = -180.0
 offset_right = -568.0
 offset_bottom = -180.0
 
-[node name="UIManager" parent="Camera2D2" node_paths=PackedStringArray("end_menu_bad") instance=ExtResource("9_8t03j")]
-end_menu_bad = NodePath("../EndMenuBad")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_rgyib")
+
+[node name="Scorelabel" type="Label" parent="CanvasLayer"]
+offset_left = 22.0
+offset_top = 135.0
+offset_right = 110.0
+offset_bottom = 158.0
+text = "zfk,muhum"
+
+[node name="Damagelabel" type="Label" parent="CanvasLayer"]
+offset_left = 228.0
+offset_top = 138.0
+offset_right = 279.0
+offset_bottom = 161.0
+text = "zsmtzt"
+
+[node name="Healthlabel" type="Label" parent="CanvasLayer"]
+offset_left = 128.0
+offset_top = 136.0
+offset_right = 173.0
+offset_bottom = 159.0
+text = "zmtsz"
 
 [connection signal="area_entered" from="PlayerHitBox" to="PlayerHitBox" method="_on_area_entered"]
