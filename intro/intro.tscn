@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvwtbu5qpbn2"]
+
+[ext_resource type="VideoStream" uid="uid://cgss4gtswjsps" path="res://intro/intro-.ogv" id="1_fpmxm"]
+[ext_resource type="Script" uid="uid://tqk1rdx4hfp3" path="res://intro/intro.gd" id="1_jkt4n"]
+[ext_resource type="PackedScene" uid="uid://djs8lhiecgo5k" path="res://menu/MainMenu.tscn" id="2_vjsr4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jkt4n")
+main_menu_scene = ExtResource("2_vjsr4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1151.0
+offset_bottom = 644.0
+stream = ExtResource("1_fpmxm")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]

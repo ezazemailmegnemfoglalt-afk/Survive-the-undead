@@ -67,10 +67,9 @@ metadata/_custom_type_script = "uid://begmjljoie2aj"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
 shape = SubResource("CircleShape2D_8xrws")
 
-[node name="EnemyHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+[node name="EnemyHurtBox" type="Area2D" parent="."]
 collision_mask = 2
 script = ExtResource("5_loxu8")
-health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dxubttw4vrt0r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]

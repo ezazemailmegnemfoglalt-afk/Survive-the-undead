@@ -55,7 +55,7 @@ func summon():
 
 func _on_health_depleted():
 	queue_free()
-	ScoreManager.add_point(5)
+	GameManager.add_score(5)
 	print("summoner meghalt")
 	summon_heal()
 

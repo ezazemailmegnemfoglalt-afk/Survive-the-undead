@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 
 func _on_health_depleted():
-	ScoreManager.add_point(10)
+	GameManager.add_point(10)
 	queue_free()
 	print("Enemy dead")
 

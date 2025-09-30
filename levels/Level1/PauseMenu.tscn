@@ -4,6 +4,7 @@
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
+visibility_layer = 9
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_1qilt")
