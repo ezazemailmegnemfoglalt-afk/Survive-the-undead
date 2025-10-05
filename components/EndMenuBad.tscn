@@ -4,6 +4,7 @@
 
 [node name="End" type="Control"]
 process_mode = 3
+light_mask = 9
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_r5uyx")

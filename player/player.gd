@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
+@export var sped: float = 200.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: PlayerHitBox = $PlayerHitBox
 @onready var health: Health = $Health
 @onready var end_menu_bad = $Camera2D2/EndMenuBad
 
+var sword = false
 
 func _ready():
 	# Connect to GameManager for death (optional - if you need player-specific death logic)
@@ -31,16 +33,21 @@ func _on_player_died():
 	print("Player: Disabled due to death")
 
 func _physics_process(delta):
-	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = dir.normalized() * speed if dir != Vector2.ZERO else Vector2.ZERO
+	var dire = Input.get_vector("moveleft", "moveright", "moveup", "movedown")
+	velocity = dire.normalized() * speed if dire != Vector2.ZERO else Vector2.ZERO
 	move_and_slide()
 
-	if dir != Vector2.ZERO:
-		anim.play("walk")
-		anim.flip_h = dir.x < 0
+	if dire  != Vector2.ZERO  :
+		if sword == false:
+			anim.play("walk")
+		else:
+			anim.play("sword")
+		anim.flip_h = dire.x < 0
 	else:
-		anim.play("idle")
-	
+		if sword == false:
+			anim.play("idle")
+		else:
+			anim.play("idelsword")
 	if Input.is_action_just_pressed("attack"):
 		_apply_attack()
 
@@ -60,3 +67,8 @@ func _on_health_depleted():
 	var end_menu = get_tree().root.find_child("EndMenuBad", true, false)
 	if end_menu:
 		end_menu.visible = true
+
+
+func _on_player_hit_box_area_entered(area: Area2D) -> void:
+	if area is Sword:
+		sword = true

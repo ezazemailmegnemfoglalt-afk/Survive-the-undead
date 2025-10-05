@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3acfj6fdx1dk"]
+
+[ext_resource type="Texture2D" uid="uid://b4c5uiexq7kcu" path="res://images/ThrowedBoneObject.png" id="1_cqyod"]
+[ext_resource type="Script" uid="uid://ch8ngd1ht1ke3" path="res://enemies/Object_thorwer_enemy/thrown_object.gd" id="2_11yf3"]
+[ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="3_d6cyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11yf3"]
+atlas = ExtResource("1_cqyod")
+region = Rect2(0, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66crx"]
+atlas = ExtResource("1_cqyod")
+region = Rect2(50, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15fxq"]
+atlas = ExtResource("1_cqyod")
+region = Rect2(100, 0, 50, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxy2x"]
+atlas = ExtResource("1_cqyod")
+region = Rect2(150, 0, 50, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k2j3"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_11yf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66crx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15fxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxy2x")
+}],
+"loop": true,
+"name": &"thrown",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nj6p0"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5fgl"]
+radius = 20.0998
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("2_11yf3")
+
+[node name="ThrownBone" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 0)
+sprite_frames = SubResource("SpriteFrames_7k2j3")
+animation = &"thrown"
+frame = 3
+frame_progress = 0.975081
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nj6p0")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_d6cyx")
+metadata/_custom_type_script = "uid://begmjljoie2aj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_w5fgl")
+
+[node name="FollowTimer" type="Timer" parent="."]
