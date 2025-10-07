@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm51esqjp46db"]
+
+[ext_resource type="Texture2D" uid="uid://do5gkca63k81a" path="res://images/birdholeonitsown.png" id="1_v2loy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jujxl"]
+atlas = ExtResource("1_v2loy")
+region = Rect2(0, 0, 31, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32xwa"]
+atlas = ExtResource("1_v2loy")
+region = Rect2(31, 0, 31, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abl3s"]
+atlas = ExtResource("1_v2loy")
+region = Rect2(0, 39, 31, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6l1b"]
+atlas = ExtResource("1_v2loy")
+region = Rect2(31, 39, 31, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1ydw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jujxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32xwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abl3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32xwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abl3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6l1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6l1b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v2loy"]
+radius = 20.0998
+
+[node name="hole" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m1ydw")
+frame = 6
+frame_progress = 0.692052
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_v2loy")
