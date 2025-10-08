@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxld6bb7om1ki"
-path="res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"
+uid="uid://510cdg4xc8vk"
+path="res://.godot/imported/eggs.png-2e046761085eea5da285b01ad5f81007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hardws.png"
-dest_files=["res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"]
+source_file="res://images/eggs.png"
+dest_files=["res://.godot/imported/eggs.png-2e046761085eea5da285b01ad5f81007.ctex"]
 
 [params]
 

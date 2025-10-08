@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxld6bb7om1ki"
-path="res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"
+uid="uid://c5ol7k0y6hm14"
+path="res://.godot/imported/healthgiver.png-bd7dd8acc04e9468d108fa1800596f02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hardws.png"
-dest_files=["res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"]
+source_file="res://images/healthgiver.png"
+dest_files=["res://.godot/imported/healthgiver.png-bd7dd8acc04e9468d108fa1800596f02.ctex"]
 
 [params]
 

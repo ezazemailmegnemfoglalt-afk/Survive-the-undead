@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=3 uid="uid://nm8fsqs3uv4s"]
 
 [ext_resource type="Script" uid="uid://sdua1phwxv6a" path="res://player/player.gd" id="1_qc56l"]
-[ext_resource type="Texture2D" uid="uid://bew8b1nupr8uq" path="res://images/attackplayer.png" id="2_boad6"]
-[ext_resource type="Texture2D" uid="uid://br18nluu8h7e0" path="res://images/ihiw.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://bndalvp4nc6i8" path="res://images/attackplayer.png" id="2_boad6"]
+[ext_resource type="Texture2D" uid="uid://dwxkt58gxqvmj" path="res://images/ihiw.png" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://bfm7dcta35h0c" path="res://components/PlayerHitBox.gd" id="3_g1dw6"]
-[ext_resource type="Texture2D" uid="uid://bf1bbi0vspr" path="res://images/hardws.png" id="4_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://bxld6bb7om1ki" path="res://images/hardws.png" id="4_hg6s5"]
 [ext_resource type="Script" uid="uid://gkger2p1migj" path="res://components/PlayerHurtBox.gd" id="5_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://cg47bgngb5tpb" path="res://components/EndMenuBad.tscn" id="8_rgyib"]
 [ext_resource type="PackedScene" uid="uid://bxcxu0m8wosce" path="res://UIManager/UIManager.tscn" id="9_8t03j"]
@@ -134,7 +134,7 @@ shape = SubResource("CircleShape2D_oul6g")
 collision_layer = 98
 collision_mask = 49
 script = ExtResource("3_g1dw6")
-damage = 10
+damage = 500
 metadata/_custom_type_script = "uid://bfm7dcta35h0c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]

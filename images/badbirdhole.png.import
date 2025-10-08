@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxld6bb7om1ki"
-path="res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"
+uid="uid://d2tjsp0uxxpfq"
+path="res://.godot/imported/badbirdhole.png-7c1b33f808b6532197c0de0c56b27d2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hardws.png"
-dest_files=["res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"]
+source_file="res://images/badbirdhole.png"
+dest_files=["res://.godot/imported/badbirdhole.png-7c1b33f808b6532197c0de0c56b27d2a.ctex"]
 
 [params]
 

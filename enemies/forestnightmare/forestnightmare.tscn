@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8ijecrr0y7ua"]
 
-[ext_resource type="Texture2D" uid="uid://bophljgx0lpnd" path="res://images/forestnightmare.png" id="1_tst02"]
+[ext_resource type="Texture2D" uid="uid://btuxs48xhfd80" path="res://images/forestnightmare.png" id="1_tst02"]
 [ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="2_54cjw"]
 [ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="3_fbtyy"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="4_4pq2f"]

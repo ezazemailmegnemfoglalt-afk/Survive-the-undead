@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxld6bb7om1ki"
-path="res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"
+uid="uid://b5vfr8hxb557j"
+path="res://.godot/imported/swordgivigprocess.png-f89f0e8fa0768411a4f14f3b9e343203.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hardws.png"
-dest_files=["res://.godot/imported/hardws.png-7a4ccc3682d2644fd2e489d2220ff0eb.ctex"]
+source_file="res://images/swordgivigprocess.png"
+dest_files=["res://.godot/imported/swordgivigprocess.png-f89f0e8fa0768411a4f14f3b9e343203.ctex"]
 
 [params]
 
