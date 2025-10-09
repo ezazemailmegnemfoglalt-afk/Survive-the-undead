@@ -18,7 +18,7 @@ func _ready():
 func _on_level1_pressed():
 	GameManager.reset_health()
 	GameManager.reset_score()
-	get_tree().change_scene_to_file("res://levels/Level1/level_1.tscn")
+	get_tree().change_scene_to_file("res://lvl1remaster.tscn")
 	
 	
 func _on_level2_pressed():

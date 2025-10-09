@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://decw4cdgt8eod"]
+[gd_scene load_steps=22 format=3 uid="uid://decw4cdgt8eod"]
 
-[ext_resource type="Script" uid="uid://c1tuxb6s3agov" path="res://treeenemy.gd" id="1_0lhtw"]
+[ext_resource type="Script" uid="uid://c0whvjpa8ejvv" path="res://enemies/tree/tree_enemy/treeenemy.gd" id="1_0lhtw"]
 [ext_resource type="Script" uid="uid://06nwsag16nhc" path="res://components/health.gd" id="2_0lhtw"]
-[ext_resource type="Texture2D" uid="uid://d2tjsp0uxxpfq" path="res://images/badbirdhole.png" id="3_c0jk1"]
+[ext_resource type="Texture2D" uid="uid://dpbeel3wuyxqs" path="res://images/badbirdhole.png" id="3_c0jk1"]
 [ext_resource type="Script" uid="uid://begmjljoie2aj" path="res://components/EnemyHitBox.gd" id="4_1c5sr"]
 [ext_resource type="Script" uid="uid://dxubttw4vrt0r" path="res://components/EnemyHurtBox.gd" id="5_47mas"]
 
@@ -104,7 +104,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_t5kbq")
 }, {
 "duration": 1.0,
@@ -139,7 +139,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0jk1"]
-radius = 122.642
+radius = 41.0122
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1c5sr"]
 radius = 35.0143
@@ -147,46 +147,45 @@ radius = 35.0143
 [sub_resource type="CircleShape2D" id="CircleShape2D_47mas"]
 radius = 28.0179
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0lhtw"]
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_0lhtw")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_0lhtw")
-max_health = 40
+max_health = 86
 metadata/_custom_type_script = "uid://06nwsag16nhc"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(179, 72)
+position = Vector2(14, -11)
 scale = Vector2(0.960526, 1)
 sprite_frames = SubResource("SpriteFrames_wu26i")
-animation = &"defa"
-frame_progress = 0.537177
+animation = &"transform"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 98
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(165, 100)
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_c0jk1")
 
 [node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("4_1c5sr")
 metadata/_custom_type_script = "uid://begmjljoie2aj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
-position = Vector2(164, 94)
 shape = SubResource("CircleShape2D_1c5sr")
 
-[node name="EnemyHurtBox" type="Area2D" parent="."]
+[node name="EnemyHurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 process_mode = 1
+collision_mask = 2
 script = ExtResource("5_47mas")
+health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dxubttw4vrt0r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
-position = Vector2(164, 95)
 shape = SubResource("CircleShape2D_47mas")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(167, 83)
-shape = SubResource("CircleShape2D_0lhtw")
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

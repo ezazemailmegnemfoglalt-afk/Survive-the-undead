@@ -15,8 +15,13 @@ script = ExtResource("1_0gkbj")
 layout_mode = 0
 offset_left = -2.0
 offset_top = -30.0
-offset_right = 38.0
-offset_bottom = -7.0
+offset_right = 413.0
+offset_bottom = 97.0
+text = "WASD - MOVE
+LEFT CLICK - ATTACK
+TAB - STOP
+"
+horizontal_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 process_mode = 3

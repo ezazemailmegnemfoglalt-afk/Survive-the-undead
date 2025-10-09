@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgpv6h28fsgv0"]
+
+[ext_resource type="Script" uid="uid://djxi3elin7egg" path="res://components/end_menu_good.gd" id="1_8bx15"]
+
+[node name="EndMenuGood" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bx15")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+offset_right = 1154.0
+offset_bottom = 647.0
+
+[node name="Title" type="Label" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 499.0
+offset_top = 24.0
+offset_right = 874.0
+offset_bottom = 130.0
+text = "You have survived this!"
+
+[node name="Retry" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 347.0
+offset_top = 243.0
+offset_right = 803.0
+offset_bottom = 433.0
+
+[node name="Button" type="Button" parent="Panel/Retry"]
+process_mode = 3
+layout_mode = 2
+text = "Retry"
+
+[node name="Exit" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 338.0
+offset_top = 102.0
+offset_right = 797.0
+offset_bottom = 178.0
+
+[node name="Button2" type="Button" parent="Panel/Exit"]
+process_mode = 3
+layout_mode = 2
+text = "Exit 
+"
